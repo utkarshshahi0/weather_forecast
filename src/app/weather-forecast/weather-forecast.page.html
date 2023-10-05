@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Weather Forecast
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngIf="forecastData">
+    <ion-item *ngFor="let forecast of forecastData">
+      <ion-icon [name]="forecast.iconName"></ion-icon>
+      <ion-label>
+        <h2>{{ forecast.date }}</h2>
+        <p>Temperature: {{ forecast.temperature }}°C</p>
+        <p>Description: {{ forecast.description }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<!-- https://api.openweathermap.org/data/3.0/onecall?lat=33.44&lon=-94.04&appid={c2f0a16732f911f0bb7123d1ecc76f57} -->
