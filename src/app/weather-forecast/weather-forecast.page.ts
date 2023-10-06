@@ -22,7 +22,7 @@ export class WeatherForecastPage implements OnInit {
   }
 
   ionViewDidEnter() {
-    this.getWeatherForecastData(this.cityName); // Replace with the actual city name
+    this.getWeatherForecastData(this.cityName); 
   }
 
 
