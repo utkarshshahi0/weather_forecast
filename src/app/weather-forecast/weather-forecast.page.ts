@@ -17,26 +17,14 @@ export class WeatherForecastPage implements OnInit {
 
   ngOnInit(): void {
     this.utility.data.subscribe(res=>{
-      // console.log(res)
       this.cityName = res
     })
-
-    // this.utility.setWeatherByCity()
-
-    // this.utility.data.subscribe(res=>{
-    //   console.log(res,"data")
-    //   this.weatherData = res
-      // this.for
-    // })
   }
 
   ionViewDidEnter() {
-    // Fetch weather forecast data when the view is entered
     this.getWeatherForecastData(this.cityName); // Replace with the actual city name
   }
-  // cityName(cityName: any) {
-  //   throw new Error('Method not implemented.');
-  // }
+
 
   getWeatherForecastData(cityName: string) {
   
