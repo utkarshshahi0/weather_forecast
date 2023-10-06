@@ -50,5 +50,4 @@ export class WeatherForecastPage implements OnInit {
       // Add more forecast items for the next days
     ];
   }
-
 }
