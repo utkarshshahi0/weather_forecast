@@ -7,7 +7,7 @@ import { UtilityService } from '../utility.service';
   styleUrls: ['./weather-forecast.page.scss'],
 })
 export class WeatherForecastPage implements OnInit {
-  forecastData: any[] = []; // Store weather forecast data here
+  forecastData: any[] = [];
   cityName:any;
   weatherData:any
   constructor(private utility:UtilityService) {
@@ -47,7 +47,7 @@ export class WeatherForecastPage implements OnInit {
         description: 'Sunny',
         iconName: 'sunny',
       },
-      // Add more forecast items for the next days
+
     ];
   }
 }

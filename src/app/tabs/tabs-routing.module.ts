@@ -38,15 +38,15 @@ const routes: Routes = [
         loadChildren: () => import('../tab3/tab3.module').then(m => m.Tab3PageModule)
       },
       {
-        path: '',
-        redirectTo: '/tabs/tab1',
+        path: 'current-weather',
+        redirectTo: '/tabs/current-weather',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/tabs/current-weather',
     pathMatch: 'full'
   }
 ];

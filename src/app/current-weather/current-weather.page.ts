@@ -17,23 +17,16 @@ export class CurrentWeatherPage implements OnInit {
   constructor( private utility:UtilityService,private http:HttpClient) {}
 
   ngOnInit() {
-
+    this.http.get("https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid=c2f0a16732f911f0bb7123d1ecc76f57").subscribe(data=>console.log(data,"dfgfgkhfhfjh"))
   }
 
   onCityNameChange() {
     console.log('City name changed to:', this.cityName);
   }
-
-
-
   searchWeather() {
-
     this.utility.getWeatherByCity(this.cityName).subscribe(
       (data) => {
-     console.log(data,"api")
-
         this.utility.setWeatherByCity(data)
-        // Handle the response data and update the UI
         this.weatherData = {
           temperature: data.main.temp,
           description: data.weather[0].description,
@@ -43,14 +36,12 @@ export class CurrentWeatherPage implements OnInit {
       },
       (error) => {
             console.error('Error:', error);
-        // Display an error message to the user
         if (error.status === 404) {
           this.errorMessage = 'City not found. Please check the city name.';
         } else {
           this.errorMessage = 'Network issue. Please try again later.';
         }
-        // Clear weather data
-        this.weatherData = null;
+        // this.weatherData = null;
       }
     );
 
