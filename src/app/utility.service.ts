@@ -46,8 +46,8 @@ export class UtilityService {
   }
 
 setWeatherByCity(cityName: any){
-  console.log(cityName)
-this.data.next(cityName)
+  // console.log(cityName)
+  this.data.next(cityName)
 }
 
 

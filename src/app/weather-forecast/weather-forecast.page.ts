@@ -6,48 +6,52 @@ import { UtilityService } from '../utility.service';
   templateUrl: './weather-forecast.page.html',
   styleUrls: ['./weather-forecast.page.scss'],
 })
-export class WeatherForecastPage implements OnInit {
-  forecastData: any[] = [];
-  cityName:any;
-  weatherData:any
-  constructor(private utility:UtilityService) {
-    console.log("this is  wether")
+export class WeatherForecastPage implements OnInit {  
+  forecastData: any;
+  constructor(private utility:UtilityService) {   
   }
-
-
+  
   ngOnInit(): void {
-    this.utility.data.subscribe(res=>{
-      this.cityName = res
-    })
+    // this.utility.data.subscribe(
+    //   (res:any[])=>{
+    //   this.forecastData = res
+    //   console.log(this.forecastData,"forcast data")
+    // })
   }
 
   ionViewDidEnter() {
-    this.getWeatherForecastData(this.cityName); 
+    this.getWeatherForecastData(); 
   }
 
+  getWeatherForecastData() {
 
-  getWeatherForecastData(cityName: string) {
-  
-    this.forecastData = [
-      {
-        date: '2023-10-05',
-        temperature: 22,
-        description: 'Partly Cloudy',
-        iconName: 'partly-sunny',
-      },
-      {
-        date: '2023-10-06',
-        temperature: 20,
-        description: 'Cloudy',
-        iconName: 'cloudy',
-      },
-      {
-        date: '2023-10-07',
-        temperature: 25,
-        description: 'Sunny',
-        iconName: 'sunny',
-      },
+    this.utility.data.subscribe(
+      (res:any[])=>{
+      this.forecastData = res
+      console.log(this.forecastData,"forcast data")
+    })
 
-    ];
+    // this.forecastData = [
+    //   {
+    //     date: ,
+    //     temperature: 22,
+    //     description: 'Partly Cloudy',
+    //     iconName: 'partly-sunny',
+    //   },
+    // ]
+    //   {
+    //     date: '2023-10-06',
+    //     temperature: 20,
+    //     description: 'Cloudy',
+    //     iconName: 'cloudy',
+    //   },
+    //   {
+    //     date: '2023-10-07',
+    //     temperature: 25,
+    //     description: 'Sunny',
+    //     iconName: 'sunny',
+    //   },
+
+    // ];
   }
 }
