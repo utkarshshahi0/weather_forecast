@@ -13,13 +13,24 @@ export class CurrentWeatherPage implements OnInit {
   errorMessage: string = '';
   cityName: string = '';
   weatherData: any ;
-  foreCastData:any
+  foreCastData:any;
+  data:string="This is data comming from current data"
+   
+
+  // data
   constructor( private utility:UtilityService,private http:HttpClient) {}
 
   ngOnInit() {
+
     // console.log("current weather")
     // this.http.get("https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&appid=c2f0a16732f911f0bb7123d1ecc76f57").subscribe(data=>console.log(data,"dfgfgkhfhfjh"))
   }
+
+setData(){
+  let data = "this is currenyt data"
+  this.utility.setData(data)
+  console.log(data)
+}
 
   onCityNameChange() {
     console.log('City name changed to:', this.cityName);
@@ -33,7 +44,7 @@ export class CurrentWeatherPage implements OnInit {
           temperature: data.main.temp,
           description: data.weather[0].description,
           iconName: data.weather[0].icon,
-          date:data.dt
+          // date:data.dt
         };
         // console.log(this.iconName)
         this.errorMessage = '';

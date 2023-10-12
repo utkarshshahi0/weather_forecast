@@ -8,23 +8,31 @@
 
 <ion-content>
 
-  <div *ngIf="forecastData">
+  <!-- <div *ngIf="forecastData">
     <h1>Forecast Data</h1>
     <ul>
       <li *ngFor="let forecast of forecastData">{{ forecast.base }}</li>
-      <!-- <p>Temperature: {{ forecast.base }}°C</p> -->
+      <p>Temperature: {{ forecast.base }}°C</p>
     </ul>
-  </div>
-  <!-- <ion-list *ngIf="forecastData">
-    <ion-item *ngFor="let forecast of forecastData">
-      <ion-icon [name]="forecast.iconName"></ion-icon>
+  </div> -->
+  <ion-list *ngIf="forecastData">
+    <!-- *ngFor="let forecast of forecastData" -->
+    <ion-item >
+      <ion-icon [name]="forecastData.iconName"></ion-icon>
       <ion-label>
-        <h2>{{ forecast.name }}</h2>
-        <p>Temperature: {{ forecast.weather[0].description }}°C</p>
-        <p>Description: {{ forecast.description }}</p>
+
+        <h2>City Name:{{ forecastData.name }}</h2>
+        <p>Date: {{forecastData.dt}}</p>
+        <p>Temperature: {{ forecastData.main.temp }}°C</p>
+        <p>Description: {{ forecastData.weather[0].description }}</p>
+        
+          <h2>Data from Component 1:</h2>
+          <p>{{ sharedData }}</p>
+        
       </ion-label>
     </ion-item>
-  </ion-list> -->
+  </ion-list>
+
 </ion-content>
 
 <!-- https://api.openweathermap.org/data/3.0/onecall?lat=33.44&lon=-94.04&appid={c2f0a16732f911f0bb7123d1ecc76f57} -->

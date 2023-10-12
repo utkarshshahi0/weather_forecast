@@ -8,28 +8,47 @@ import { UtilityService } from '../utility.service';
 })
 export class WeatherForecastPage implements OnInit {  
   forecastData: any;
+  sharedData:any
   constructor(private utility:UtilityService) {   
   }
   
   ngOnInit(): void {
-    // this.utility.data.subscribe(
-    //   (res:any[])=>{
-    //   this.forecastData = res
-    //   console.log(this.forecastData,"forcast data")
-    // })
+  
+    this.utility.data.subscribe(
+      (res:any[])=>{
+
+      this.forecastData = res
+      // this.forecastData = {
+      //   temperature: res.main.temp,
+      //   description: res.weather[0].description,
+      //   iconName: res.weather[0].icon,
+      //   // date:data.dt
+      // };
+      console.log(this.forecastData,"forcast data")
+    })
   }
 
   ionViewDidEnter() {
+    this.getData()
     this.getWeatherForecastData(); 
   }
 
   getWeatherForecastData() {
 
-    this.utility.data.subscribe(
-      (res:any[])=>{
-      this.forecastData = res
-      console.log(this.forecastData,"forcast data")
-    })
+    // this.utility.data.subscribe(
+    //   (res:any[])=>{
+    //     console.log(res)
+    //   this.forecastData = res
+
+      //  this.forecastData = [
+      // {
+      //   temperature: res.main[0].temp,
+      //   description: 'Partly Cloudy',
+      //   iconName: 'partly-sunny',
+      // },
+    // ]
+      // console.log(this.forecastData,"forcast data")
+    // })
 
     // this.forecastData = [
     //   {
@@ -53,5 +72,9 @@ export class WeatherForecastPage implements OnInit {
     //   },
 
     // ];
+  }
+
+  getData(){
+    this.sharedData  = this.utility.getData()
   }
 }

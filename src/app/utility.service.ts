@@ -11,7 +11,9 @@ export class UtilityService {
   private currentWeatherData: any;
   private forecastData: any;
   public data = new Subject<any>()
+  public myData:any;
 
+  
   //  private cityName
  
   // private weatherDataSubject = new Subject<any>();
@@ -46,8 +48,18 @@ export class UtilityService {
   }
 
 setWeatherByCity(cityName: any){
-  // console.log(cityName)
+  console.log(cityName)
   this.data.next(cityName)
+}
+
+setData(data:any){
+ this.myData = data
+ console.log(this.myData)
+}
+
+getData(){
+  return  this.myData
+  // console.log(this.myData,"Dtan Coming from current")
 }
 
 
